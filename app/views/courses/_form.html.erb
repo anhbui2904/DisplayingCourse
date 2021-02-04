@@ -1,0 +1,41 @@
+<%= form_with(model: course) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% course.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, placeholder: "Image" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.text_field :video, placeholder: "Video" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: "Title" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :star %>
+    <%= form.text_field :star, placeholder: "star" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, placeholder: "Description", length: "800", class: "materialize-textarea"   %>
+  </div>
+
+  <button class ="btn" type="submit">Submit</button>
+  <%=link_to "Go to all courses", courses_path, class: "btn" %>
+<% end %>
